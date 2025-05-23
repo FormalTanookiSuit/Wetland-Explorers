@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome to the Wetlands!</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+
+ 
+
+
+
+<body>
+  <header>
+    <nav aria-label="Main Navigation">
+      <h1>🌿 Welcome to Wetlands</h1>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="whatarewetlands.html">What Are Wetlands?</a></li>
+        <li><a href="#">Wildlife</a></li>
+        <li><a href="games.html" target="_blank">Games</a></li>
+        <li><a href="#">Protect</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="banner">
+    <img src="images/banner1.jpg"  class="banner-image active" alt="Wetlands Image 1">
+    <img src="images/banner2.jpg" class="banner-image" alt="Wetlands Image 2">
+    <img src="images/banner3.jpg" style="background-position: bottom;" class="banner-image"  alt="Wetlands Image 3">
+    <img src="images/banner4.jpg" class="banner-image" alt="Wetlands Image 4">
+  </div>
+  
+
+  <section class="hero">
+    <h2>Welcome to Wetlands!</h2>
+    <p>Discover the amazing world of wetlands — nature's coolest superpower!</p>
+  </section>
+
+  <section class="cards">
+    
+      <a href="whatarewetlands.html" class="card">
+      <h3>🌱 What Are Wetlands?</h3>
+      <p>Learn about marshes, swamps, and more! Find out what makes a wetland... wet!</p>
+       </a>
+    
+      <a href="meettheanimals.html" class="card">
+      <h3>🦆 Meet the Animals</h3>
+      <p>Frogs, turtles, birds, and bugs — wetlands are full of amazing wildlife!</p>
+      </a>
+
+      <a href="play&learn.html" class="card">
+      <h3>🎮 Play & Learn</h3>
+      <p>Try our quizzes and games to test your wetland wisdom!</p>
+      </a>
+      
+
+
+    </div>
+  </section>
+
+  <footer>
+    <p>🧠 Learn • 🌎 Explore • 💧 Protect</p>
+    <p>&copy; 2025 Wetland Explorers</p>
+  </footer>
+  <script>
+    let current = 0;
+    const images = document.querySelectorAll('.banner-image');
+    const total = images.length;
+  
+    function cycleImages() {
+      images[current].classList.remove('active');
+      current = (current + 1) % total;
+      images[current].classList.add('active');
+    }
+  
+    setInterval(cycleImages, 5000); // Change every 5 seconds
+  </script>
+
+</body>
+</html>

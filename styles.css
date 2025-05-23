@@ -1,0 +1,278 @@
+/* Base styles */
+body {
+  margin: 0;
+  font-family: 'Comic Sans MS', sans-serif;
+  background-color: #e0f7f1;
+  color: #2d3e50;
+}
+
+@media (max-width: 600px) {
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
+/* Header and nav */
+header {
+  background: linear-gradient(to right, #4db6ac, #81d4fa);
+  padding: 1rem 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav a.active {
+  text-decoration: underline;
+  color: #ffeb3b;
+}
+
+.card:focus,
+nav a:focus {
+  outline: 3px dashed #4db6ac;
+  outline-offset: 4px;
+}
+
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+nav h1 {
+  font-size: 1.8rem;
+  color: white;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Hero section */
+
+.banner {
+  position: relative;
+  width: 100%;
+  height: 300px; /* Adjust as needed */
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.banner-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 0;
+  object-fit: cover;
+}
+
+.banner-image.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+
+.hero {
+  background-color: #c8e6c9;
+  padding: 2rem;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  color: #2e7d32;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+.circle-button {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: linear-gradient(to bottom right, #4db6ac, #81d4fa);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.circle-button span {
+  z-index: 2;
+  position: relative;
+}
+
+.circle-button::before {
+  content: '';
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+  border-radius: 50%;
+}
+
+.circle-button.herbaceous::before {
+  background-image: url('images/herbaceous.jpg'); /* Replace with your image path */
+}
+
+.circle-button.forested::before {
+  background-image: url('images/forested.jpg');
+}
+
+.circle-button.permanent::before {
+  background-image: url('images/permanent.jpg');
+}
+
+.circle-button:hover::before {
+  opacity: 1;
+}
+
+.circle-button:hover span {
+  color: transparent;
+}
+
+
+/* Cards */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.card {
+  background-color: #ffffff;
+  border: 2px solid #81d4fa;
+  border-radius: 12px;
+  padding: 1rem;
+  width: 280px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card h3 {
+  color: #00796b;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: #a7ffeb;
+  margin-top: 2rem;
+}
+
+.animal-page {
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.category-toggle {
+  background-color: #81d4fa;
+  border: none;
+  color: #fff;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  margin: 1rem 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.category-intro {
+  max-width: 600px;
+  margin: 0 auto 1rem;
+  font-size: 1rem;
+  color: #2d3e50;
+  background-color: #e0f7fa;
+  padding: 1rem;
+  border-left: 5px solid #4db6ac;
+  border-radius: 8px;
+  text-align: left;
+}
+
+
+.animal-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  transition: all 0.3s ease;
+}
+
+.animal-card {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  border: 3px solid #4db6ac;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px black;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  padding: 0.5rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.animal-fact {
+  max-width: 150px;
+  margin: 0.5rem auto;
+  background-color: #e0f7fa;
+  padding: 0.5rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #2d3e50;
+  text-align: center;
+  border: 1px solid #4db6ac;
+  transition: all 0.3s ease;
+}

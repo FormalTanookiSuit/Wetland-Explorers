@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>What Are Wetlands?</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      font-family: 'Comic Sans MS', sans-serif;
+      background-color: #e0f7f1;
+      color: #2d3e50;
+      padding: 1rem;
+    }
+
+    .circle-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .circle-button {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: linear-gradient(to bottom right, #4db6ac, #81d4fa);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .circle-button:hover {
+      transform: scale(1.05);
+    }
+
+    .inner-section {
+      display: none;
+      max-width: 700px;
+      margin: 1rem auto;
+      background-color: #ffffff;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .inner-section h3 {
+      color: #00796b;
+    }
+
+    .dropdown {
+      margin: 1rem 0;
+    }
+
+    .dropdown button {
+      width: 100%;
+      background-color: #c8e6c9;
+      border: none;
+      padding: 0.8rem;
+      text-align: left;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+
+    .dropdown-content {
+      display: none;
+      padding: 0.5rem 1rem;
+      background-color: #f1f8e9;
+      border-left: 3px solid #4db6ac;
+    }
+
+    .dropdown button.active + .dropdown-content {
+      display: block;
+    }
+    .circle-button {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: linear-gradient(to bottom right, #4db6ac, #81d4fa);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.circle-button span {
+  z-index: 2;
+  position: relative;
+}
+
+.circle-button::before {
+  content: '';
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+  border-radius: 50%;
+}
+
+.circle-button.herbaceous::before {
+  background-image: url('images/herbaceous.jpg'); /* Replace with your image path */
+}
+
+.circle-button.forested::before {
+  background-image: url('images/forested.jpg');
+}
+
+.circle-button.permanent::before {
+  background-image: url('images/permanent.jpg');
+}
+
+.circle-button:hover::before {
+  opacity: 1;
+}
+
+.circle-button:hover span {
+  color: transparent;
+}
+
+.inner-section {
+  display: none;
+  max-width: 800px;
+  margin: 2rem auto;
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.inner-section h3 {
+  color: #00796b;
+  margin-bottom: 2rem;
+}
+
+.inner-circle-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 160px;
+}
+
+.dropdown button {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: #81d4fa;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  padding: 1rem;
+  text-align: center;
+  .dropdown button {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: #81d4fa; /* Fallback color */
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  padding: 1rem;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdown button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4); /* dark overlay for text contrast */
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.dropdown button span {
+  z-index: 1;
+  position: relative;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+}
+
+}
+
+.dropdown button:hover {
+  transform: scale(1.05);
+  background-color: #4db6ac;
+}
+
+.dropdown-content {
+  display: none;
+  margin-top: 0.5rem;
+  background-color: #f1f8e9;
+  border-radius: 10px;
+  padding: 0.75rem;
+  text-align: left;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  font-size: 0.9rem;
+}
+
+.dropdown button.active + .dropdown-content {
+  display: block;
+}
+
+
+
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <h1><a href="index.html" style="color: white; text-decoration: none;">🌿 Wetland Explorers</a></h1>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="whatarewetlands.html">What Are Wetlands?</a></li>
+        <li><a href="meettheanimals.html">Wildlife</a></li>
+        <li><a href="quiz.html" target="_blank">Games</a></li>
+        <li><a href="protect.html">Protect</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+
+  <h1 style="text-align:center;">🌱 What Are Wetlands?</h1>
+  <p style="text-align:center;">Click a wetland type to explore its unique ecosystems.</p>
+
+  <div class="circle-container">
+    <button class="circle-button herbaceous" onclick="toggleSection('herbaceous')"><span>Herbaceous<br>Wetlands</span></button>
+    <button class="circle-button forested" onclick="toggleSection('forested')"><span>Forested<br>Wetlands</span></button>
+    <button class="circle-button permanent" onclick="toggleSection('permanent')"><span>Permanent<br>Wetlands</span></button>
+  </div>
+
+  <div id="herbaceous" class="inner-section">
+    <h3>🌾 Herbaceous Wetlands</h3>
+    <div class="inner-circle-container">
+      <div class="dropdown">
+       <button style="background-image: url('images/slough.jpg'); background-position: left;"><span>Sloughs</span></button>
+        <div class="dropdown-content">
+        <p>Sloughs are shallow, slow-moving channels often found in marshes and prairies.</p>
+      </div>
+     </div>
+    <div class="dropdown">
+      <button style="background-image: url('images/marsh.jpg');"><span>Marshes</span></button>
+      <div class="dropdown-content">
+        <p>Marshes are dominated by grasses and are home to a variety of bird and insect life.</p>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button style="background-image: url('images/ephemeral.jpg');"><span>Ephemeral Ponds</span></button>
+      <div class="dropdown-content">
+        <p>These seasonal wetlands appear after heavy rains and support amphibians and insects.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="forested" class="inner-section">
+    <h3>🌳 Forested Wetlands</h3>
+    <div class="inner-circle-container">
+    <div class="dropdown">
+      <button style="background-image: url('images/swamp.jpg');">Swamps</button>
+      <div class="dropdown-content">
+        <p>Swamps are wetlands dominated by trees, often with standing or slow-moving water.</p>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button style="background-image: url('images/cypress.jpg');">Cypress Domes</button>
+      <div class="dropdown-content">
+        <p>Named for their dome shape, these wetlands feature tall cypress trees in the center.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div id="permanent" class="inner-section">
+    <h3>💧 Permanent Wetlands</h3>
+    <div class="inner-circle-container">
+    <div class="dropdown">
+      <button style="background-image: url(images/aquifer.jpg);">Florida Aquifer</button>
+      <div class="dropdown-content">
+        <p>This massive underground reservoir feeds springs and rivers throughout Florida.</p>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button style="background-image: url(images/sinkhole.jpg); background-position: bottom;">Sinkholes</button>
+      <div class="dropdown-content">
+        <p>Natural depressions that collect water and often connect to underground water systems.</p>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button style="background-image: url(images/lake.jpg);">Lakes, Rivers & Streams</button>
+      <div class="dropdown-content">
+        <p>These bodies of water form important, permanent ecosystems in the wetland landscape.</p>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button style="background-image: url(images/spring.jpg);">Springs</button>
+      <div class="dropdown-content">
+        <p>Clear, cool water flows from the ground year-round, supporting wildlife and humans alike.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script>
+    function toggleSection(id) {
+      const allSections = document.querySelectorAll('.inner-section');
+      allSections.forEach(sec => {
+        if (sec.id === id) {
+          sec.style.display = sec.style.display === 'block' ? 'none' : 'block';
+        } else {
+          sec.style.display = 'none';
+        }
+      });
+    }
+
+    const dropdownButtons = document.querySelectorAll('.dropdown button');
+    dropdownButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        button.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html>
+
